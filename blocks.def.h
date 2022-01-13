@@ -6,6 +6,7 @@ static const Block blocks[] = {
 	{"", "sensors | grep Core | head -n 1 | awk '{print $3}'",	2,		0},
 	{"", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	5,		0},
 	{" ", "echo $(($(brightnessctl get) * 10))%",	0,		11},
+	{"", "uptime -p",					60,		0},
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
 
