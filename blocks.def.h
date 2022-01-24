@@ -5,6 +5,7 @@ static const Block blocks[] = {
 	{" ", "pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \\([0-9][0-9]*\\)%.*,\\1,'",	0,		12},
 	{"", "sensors | grep Core | head -n 1 | awk '{print $3}'",	2,		0},
 	{"", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	5,		0},
+	{" ", "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -i percentage| awk '{print $2}'", 60, 0},
 	{" ", "echo $(($(brightnessctl get) * 10))%",	0,		11},
 	{"", "uptime -p",					60,		0},
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
